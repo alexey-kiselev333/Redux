@@ -5,14 +5,14 @@ import Value from "./Value";
 import * as actions from "../../redux/counter/counter-actions";
 
 
-function Counters({value, onIncrement, onDecrement, step}) {
+function Counters({value, onIncrement, onDecrement}) {
 
     return (
         <div>
             <Value
-                onIncrement={() => onIncrement(step)}
-                onDecrement={() => onDecrement(step)}
-                value={value} step={step}
+                onIncrement={() => onIncrement(5)}
+                onDecrement={() => onDecrement(5)}
+                value={value} step={5}
             />
         </div>
     )
@@ -20,17 +20,16 @@ function Counters({value, onIncrement, onDecrement, step}) {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+    console.log('ee33e',state)
     return {
-        value: state.counter.value,
-        step: state.counter.step,
+        value: state.counterValue,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIncrement: (value) => dispatch(actions.increment(value)),
-        onDecrement: (value) => dispatch(actions.decrement(value))
+        onIncrement: () => dispatch(actions.increment(5)),
+        onDecrement: () => dispatch(actions.decrement(5))
     }
 }
 

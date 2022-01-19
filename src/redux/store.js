@@ -1,25 +1,15 @@
+import {createStore} from "redux";
 
-import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
-import counterReducer from './counter/counter-reducer'
-import {logger} from "redux-logger/src";
+import {valueReducer} from './counter/counter-reducer'
 
-
-console.log(getDefaultMiddleware(),logger)
+const store = createStore(valueReducer);
 
 
 
-
-
-
-const middleware = [...getDefaultMiddleware(),logger]
-// const store = createStore(rootReducer,composeWithDevTools());
-
-
-
-const store = configureStore({
-    reducer: {counter:counterReducer},
-    middleware:middleware,
-    devTools: process.env.NODE_ENV === 'development',
-})
+// const store = configureStore({
+//     reducer: {counter:counterReducer},
+//     middleware:middleware,
+//     devTools: process.env.NODE_ENV === 'development',
+// })
 
 export default store;

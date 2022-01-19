@@ -8,7 +8,11 @@ import store from './redux/store'
 import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 
+import * as actions from "./redux/counter/counter-actions";
+
 console.log(store.getState())
+
+console.log(store.dispatch(actions.increment(20)))
 
 ReactDOM.render(
   <React.StrictMode>

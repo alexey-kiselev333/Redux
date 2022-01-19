@@ -2,7 +2,7 @@ import React from "react";
 
 
 function Value({value,onIncrement,onDecrement,step}){
-
+console.log(value)
     return (
         <div>
             {value}
